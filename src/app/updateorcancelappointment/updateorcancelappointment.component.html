@@ -1,0 +1,135 @@
+<!-- Cancel Doctor Appointment -->
+<!--AUTHOR NAME: Varsha Sridhar-->
+<!-- STUDENT_ID: B00791643 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+      
+       
+        <li class="nav-item">
+          <a [routerLink]="['/bookappointment']" class="nav-link" href="#">Book Appointment</a>
+        </li>
+        <li class="nav-item active">
+          <a [routerLink]="['/updateorcancelappointment']" class="nav-link">Manage Appointments</a>
+        </li>
+        <li class="nav-item ">
+        <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'patient' }" class="nav-link">Blog</a>
+      </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <p class="name">Varsha Sridhar </p>
+        </li>
+        <li>
+          <div class="btn-group profile">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" [routerLink]="['/profile']" type="button">Profile</button>
+              <button class="dropdown-item" type="button">Help</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" (click)="logout()" type="button">Logout</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+      <!-- <h1 style="text-align: center;color:black">Update or Cancel Appointment</h1> -->
+      <!-- <form name ="cancelappointment" (cancel)="canceldocappointment()">   -->
+      <br><br><br>
+      <div class="col-md-6 col-md-offset-3">
+          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <strong>Appointment Details</strong>
+                  </div>
+                  <br>
+                  <div class="panel-body">
+                      <form class="form-horizontal">
+                      <div class="form-group">
+                         
+                          <label for="lblName" class="col-sm-4 control-label">
+                              Dr Name :</label>
+                          <div class="col-sm-6">
+                              <!-- <label class="form-control" id="lblName">Dr. A</label> -->
+                              <input [(ngModel)]="docnameInput" name="docnameInput" class="form-control" id="lblName" placeholder="Lexie Grey" required>
+                              <div *ngIf="docnull" style="color:red;text-align:left;">
+                                Please enter the Doctor's Name
+                              </div>
+                          </div>
+                      </div>
+                      <!-- <div class="form-group">
+                         
+                              <label for="lblSpeciality" class="col-sm-4 control-label">
+                                 Speciality :</label>
+                              <div class="col-sm-6">
+                                  <label class="form-control" id="lblSpeciality">Cardiologist</label>
+                                  <input type="text" class="form-control" id="lblSpeciality" placeholder="Cardiologist" required>
+                              </div>
+                          </div> -->
+                          <div class="form-group">
+                         
+                                  <label for="lblDateOfAppointment" class="col-sm-4 control-label">
+                                      Date :</label>
+                                  <div class="col-sm-6">
+                                      <input type="text" [(ngModel)]="appodateInput" name="appodateInput" class="form-control" id="lblDateOfAppointment" placeholder="DD-MM-YYYY" required>
+                                      <div *ngIf="datenull" style="color:red;text-align:left;">
+                                        Please enter the date
+                                      </div>
+                                      <div *ngIf="invaliddate" style="color:red;text-align:left;">
+                                        Date format is incorrect,please use DD-MM-YYYY format
+                                      </div>
+                                  </div>
+                              </div>
+                                  <div class="form-group">
+                         
+                                      <label for="lblTiming" class="col-sm-4 control-label">
+                                       Timing</label>
+                                      <div class="col-sm-6">
+                                      <div *ngFor="let timesl of timeslot; let i = index">
+                                      
+                                        <input type="text" [(ngModel)]="timesl[i]" name="name{{i}}" id={{i}}  class="form-control" placeholder="11:00AM-12:00PM" required>
+                                      
+                                        <div *ngIf="timesl.nulltime" style="color:red;text-align:left;">
+                                        Please enter the time
+                                        </div>
+                                        <div *ngIf="timesl.invalidtime" style="color:red;text-align:left;">
+                                        Time format is incorrect
+                                        </div>
+                                      </div>
+                                      &nbsp;&nbsp;
+                                      </div>
+                                      </div>
+                                    
+                  <div class="form-group last" style="text-align: center">
+                      &nbsp;&nbsp;
+                          <div class="col-sm-offset-3 col-sm-6"> 
+                          <br>
+                              &nbsp; &nbsp;
+                              <input type="submit" value="Submit" (click)="validate()"class="btn btn-dark login">
+                              <!-- <input type="submit" value="Submit" (click)="validate()" class="btn login_btn"> -->
+                          </div>
+      </div>
+      </form>
+      
+      </div>
+      </div>
+      </div>
+    <!-- </form> -->
+      </div>
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+      <div class="row m-0">
+        <div class="container text-center" id="copyright">
+          <h4 class="copy">Copyright &copy; Your Website</h4>
+        </div>
+      </div>
+    
+    </footer>

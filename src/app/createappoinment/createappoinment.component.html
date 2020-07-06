@@ -1,0 +1,161 @@
+<!--Author NAME: Aishwarya Narayanan STUDENT ID: B00820313-->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+  
+     
+      <li class="nav-item active">
+        <a [routerLink]="['/doctor']" class="nav-link" href="#">Appointments</a>
+      </li>
+      <li class="nav-item">
+        <a  [routerLink]="['/medicalrecords']" class="nav-link" >Medical Records</a>
+      </li>
+        <li class="nav-item ">
+        <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'doctor' }" class="nav-link">Blog</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto navright">
+     <li>
+        <p class="name"> {{firstname}} {{lastname}} </p>
+      </li>
+      <li>
+        <div class="btn-group profile">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" [routerLink]="['/profile']" type="button">Profile</button>
+            <button class="dropdown-item" type="button">Help</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()" type="button">Logout</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="d-md-flex h-md-100">
+
+
+
+  <div class="col-md-4 p-0 bg-img h-md-100">
+    <div class="text-white d-md-flex align-items-center h-100 p-5 text-center justify-content-center">
+      <div class="logoarea pt-5 pb-5">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-md-8 p-0 bg-white h-md-100 formarea">
+    <div class="d-md-flex p-5">
+      <div class="row m-0">
+        <p class="schedule"> Create Schedule</p>
+        <p><b>Note </b>: The below schedule you create will be made available to patients when they make appointments with you. Please include any additional comments if needed.</p>
+
+        <form>
+
+          <div class="form-group row labels">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-5 col-form-label">Date</label>
+
+            <div class="col-sm-5">
+              <div class="input-group mb-3">
+                <!-- <ng-datepicker [(ngModel)]="date" ></ng-datepicker> -->
+                <input type="text" [(ngModel)]="dateInput" name="dateInput" id="date"   placeholder="MM-DD-YYY" class="form-control" required>
+            
+                <span class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                </button>
+            </span>
+              </div>
+              <div *ngIf="datenull" style="color:red;text-align:left;">
+                Please enter the date
+              </div>
+              <div *ngIf="invaliddate" style="color:red;text-align:left;">
+                Date format is incorrect
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="form-group row labels">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-5 col-form-label">Time</label>
+            
+            <div class="col-sm-5">
+              <div *ngFor="let timesl of timeslot; let i = index">
+              <div class="input-group mb-3">
+                <input [(ngModel)]="timesl[i]" name="name{{i}}"  id={{i}} class="form-control" placeholder="11:00AM - 12:00PM" required>
+                <span class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">
+                    <i class="fa fa-clock-o"  aria-hidden="true"></i>
+                </button>
+            </span>
+
+              </div>
+               <div *ngIf="timesl.nulltime" style="color:red;text-align:left;">
+                Please enter the time
+              </div>
+              <div *ngIf="timesl.invalidtime" style="color:red;text-align:left;">
+                Time format is incorrect
+              </div> 
+            </div>
+          
+          </div>
+            <div class="col-sm-1"><button  type="button" (click)="dynamicDiv()">
+                 <i class="fa fa-plus" aria-hidden="true"></i>
+                </button></div>
+          </div>
+          <div class="form-group row labels">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-5 col-form-label">Location</label>
+
+            <div class="col-sm-5">
+              <div class="input-group mb-3">
+                <input  [(ngModel)]="locInput" name="locInput" placeholder="ABC Clinic" class="form-control" id="loc" required>
+                <span class="input-group-append">
+                <button class="btn btn-outline-secondary loc"  type="button">
+                 
+                     <i class="fa fa-map-marker"  aria-hidden="true"></i> 
+                </button>
+            </span>
+              </div>
+              <div *ngIf="locnull" style="color:red;text-align:left;">
+                Please enter the location details
+              </div>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="form-group row labels">
+            <div class="col-sm-1"></div>
+            <label class="col-sm-5 col-form-label">Comments (Optional)</label>
+
+            <div class="col-sm-5">
+              <div class="input-group mb-3">
+
+                <textarea [(ngModel)]="commentInput" name="commentInput" class="form-control" rows="5" id="comment" required></textarea>
+              </div>
+
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+          <div class="form-group row labels">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-7">
+              <input type="submit" value="Submit" (click)="validate()" class="btn login_btn">
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

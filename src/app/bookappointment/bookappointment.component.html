@@ -1,0 +1,166 @@
+<!-- Dharmambal Sureshkumar B00824492 -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     <li class="nav-item active" >
+        <a [routerLink]="['/bookappointment']" class="nav-link">Book Appointment</a>
+      </li>
+      <li class="nav-item ">
+        <a [routerLink]="['/managebooking']" class="nav-link">Manage Appointments</a>
+      </li>
+       <li class="nav-item ">
+        <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'patient' }" class="nav-link">Blog</a>
+      </li>
+   
+   
+    </ul>
+    
+    <ul class="nav navbar-nav ml-auto navright">
+      <li>
+        <p class="name"> Varsha Sridhar </p>
+      </li>
+      <li>
+        <div class="btn-group profile">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" [routerLink]="['/profile']" type="button">Profile</button>
+            <button class="dropdown-item" type="button">Help</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()" type="button">Logout</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="card">
+  <!-- <div style="background-color: #343a40;color:white;" class="card-header text-center"><strong>Book Appointment</strong></div> -->
+  <div class="card-body">
+          <form name="bookappointmentform" class="w-50 m-auto">
+                  <div class="form-group">
+                      <div class="form-row">
+                          <div class="col-md-6">
+                            <label style="color: white">First Name</label>
+                            <input type="text" name="fname" id="fname" [(ngModel)]="fname" placeholder="First Name" required class="form-control">
+                            <div *ngIf="pnull" style="color:red">
+                              First Name is required
+                            </div>    
+                  </div>
+                  <div class="col-md-6">
+                      <label style="color: white">Last Name</label>
+                      <input type="text" name="lname" id="lname"[(ngModel)]="lname" placeholder="Last Name" required="" class="form-control">
+                      <div *ngIf="pnull" style="color:red">
+                        Last Name is required
+                      </div>  
+                  </div>
+                  </div>
+              </div>
+              <div class="form-group">
+                  <div class="form-row">
+                          <div class="col-md-6">
+                          <label style="color: white">Email</label>
+                          <input type="email" name="email" id="email"[(ngModel)]="email" placeholder="Email" required="" class="form-control">
+                          <div *ngIf="enull" style="color:red">
+                            Email is required
+                          </div>
+                          <div *ngIf="einvalid" style="color:red">
+                            Invalid email id.
+                          </div>
+                          </div>
+                          <div class="col-md-6">
+                          <label style="color: white">Phone</label>
+                          <input type="text" name="phone" id="phone" [(ngModel)]="phone" placeholder="Phone" minlength="10" maxlength="13" required="" class="form-control">
+                          <div *ngIf="pnull" style="color:red">
+                            Phone is required
+                          </div>    
+                        </div>  
+                  </div>  
+                  </div>
+                  <div class="form-group">
+                    <div class="form-row">
+                       <label style="color: white">Select Doctor</label>
+                       <div class="btn-group selectDtr">
+                      <button type="button" class="btn dropdown-toggle btnDtr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{doctor}}
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" (click)="stopReload();setDoctor(d.doctorname);" href="#" *ngFor="let d of doctorList">{{d.doctorname}}</a>
+                      </div>
+                    </div>
+                    </div>
+                    </div>
+              <div class="form-group">
+                  <div class="form-row">
+                    <label style="color: white">Booking Date</label>
+                    <div class="btn-group selectDtr">
+                   <button type="button" class="btn dropdown-toggle btnDtr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{selectedDate}}
+                   </button>
+                   <div class="dropdown-menu dropdown-menu-right" >
+                     <a class="dropdown-item" (click)="stopReload();setDate(d.date);" href="#" *ngFor="let d of dateonly">{{d.date}}</a>
+                   </div>
+                 </div>
+                 </div>
+              </div>
+              <div class="form-group">
+                  <div class="form-row">
+                      <label style="color: white">Booking time</label>
+                      <div class="btn-group selectDtr">
+                     <button type="button" class="btn dropdown-toggle btnDtr" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       {{selectedTime}}
+                     </button>
+                     <div class="dropdown-menu dropdown-menu-right" >
+                       <a class="dropdown-item" (click)="stopReload();setTime(d.timesolts);" href="#" *ngFor="let d of timeonly">{{d.timesolts}}</a>
+                     </div>
+                   </div>
+                   </div>
+              </div>
+          <div class="form-group">
+              <div class="form-row">
+                      <label style="color: white">Reason for Appointment</label>
+                      <textarea class="form-control" name="reason" id="reason" [(ngModel)]="reason" placeholder="Optional" rows="2"></textarea>
+              </div>
+              </div>
+                      <div class="form-group">
+                          <div class="form-row">
+                              <div class="col-md-5">
+                          <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="checkbox" id="urgentbooking" value="urgentbooking">
+                              <label style="color: white" class="form-check-label" for="urgentbooking">Urgent Booking</label>
+                            </div>
+                            </div>
+                            <div class="col-md-7">
+                                <textarea class="form-control" id="Ureason" placeholder="Reason for Urgency (Optional)" rows="2"></textarea>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+
+                               <div class="col-md-2"></div> 
+                              <div class="col-md-10">
+                                <input type="submit"  (click)="click()" value="Book Appointment"  class="btn finalsubmit">
+                              </div> 
+                               <div class="col-md-2"></div> 
+                            </div>
+                        </div>
+              </form>
+  </div>
+</div>
+  </div>
+
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+  <div class="row m-0">
+    <div class="container text-center" id="copyright">
+      <h4 class="copy">Copyright &copy; Your Website</h4>
+    </div>
+  </div>
+
+</footer>

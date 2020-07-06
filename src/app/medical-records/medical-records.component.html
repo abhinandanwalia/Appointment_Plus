@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    
+      
+      <li class="nav-item">
+        <a  [routerLink]="['/doctor']"  class="nav-link" >Appointments</a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['/medicalrecords']" class="nav-link" >Medical Records</a>
+      </li>
+    <li class="nav-item ">
+        <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'doctor' }" class="nav-link">Blog</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto navright">
+      <li>
+        <p class="name"> Rodrick Paul </p>
+      </li>
+      <li>
+        <div class="btn-group profile">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" [routerLink]="['/profile']" type="button">Profile</button>
+            <button class="dropdown-item" type="button">Help</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()" type="button">Logout</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+    <!-- <h1 style="text-align: center" >Medical Records</h1> -->
+     <div *ngIf="!showforum" class="row searchBar">
+              <div class="input-group mb-3 col-sm-6">
+                <input [(ngModel)]="searchstring" (keyup)="searchpatient()" type="text" placeholder="Patients ID"  class="form-control">
+                <span class="input-group-append">
+                <button class="btn btn-outline-secondary searchbtn" type="button">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+            </span>
+              </div>
+              <div class="col-sm-6" >
+              <button (click)="hideOrShowForm()" type="button" style="margin-top: 1%;margin-left: 62%;" class="btn btn-dark post">Upload Prescription  <i class="fa fa-upload" aria-hidden="true"></i> </button>
+            </div>
+          </div>    
+<div *ngIf="!showforum" class="main">
+            <mat-card style="background-color:#dee2e6;color:black">
+              <div class="row">
+              <h6 class="col-sm-3">Patient Name</h6>
+              <h6 class="col-sm-3">Patient Id</h6>
+              <h6 class="col-sm-3">Description</h6>
+              <!-- <h6 class="col-sm-1">View</h6> -->
+              <h6 class="col-sm-1">Download</h6>
+              <!-- <a class="col-sm-1"><i class="fas fa-eye"></i></a>
+              <a class="col-sm-1"><i class="fas fa-download"></i></a> -->
+            </div>
+          </mat-card>
+          <div *ngFor="let data of patient_records" >
+              <mat-card *ngIf="data.elementshow" style="margin-top:2%">
+                  <div class="row">
+                  <p class="col-sm-3">{{data.patientname}}</p>
+                  <p class="col-sm-3">{{data.patientid}}</p>
+                  <p class="col-sm-3">{{data.description}}</p>
+                  <!-- <a (click)="showPdf(data.record)"  class="col-sm-1"><i class="fa fa-eye"></i></a> -->
+                  <a (click)="downloadPdf(data.record,data.patientid)" class="col-sm-1"><i class="fa fa-download"></i></a>
+                </div>
+              </mat-card>
+          </div>
+          
+</div>
+<div *ngIf="showforum" class="card" style="width: 50%;margin-left: 20%;margin-top: 5%;">
+    <h2 style="text-align: center;color:black">Create Medical Record</h2>
+    <div style="margin-top: 3%;color: black;text-align: left">Enter patient name</div>
+    <input [(ngModel)]="patient_name" style="width: 70%;"type="text">
+    <p style="color: red;text-align: left" [hidden]="patient_name_validation"> please enter patient name</p>
+    <div style="margin-top: 3%;color: black;text-align: left">Enter patient id</div>
+    <input [(ngModel)]="patient_id" style="width: 70%;"type="text">
+    <p style="color: red;text-align: left" [hidden]="patient_id_validation"> please enter patient id</p>
+    <!-- <p style="color: red;text-align: left" [hidden]="patient_valid_id_validation"> please enter a valid patient id</p> -->
+    <div style="margin-top: 3%;color: black;text-align: left">Enter Description</div>
+    <input [(ngModel)]="patient_description" style="width: 70%;"type="text">
+    <p style="color: red;text-align: left" [hidden]="patient_description_validation"> please enter Description</p>
+    <div style="margin-top: 3%;color: black;text-align: left">Upload Medical Record</div>
+    <!-- <label style="margin-top: 3%;margin-left: 5%;">Upload Medical Record</label> -->
+    <input style="margin-top: 1%;" type="file" (change)="handleInputChange($event)" accept="pdf/*">
+    <p style="color: red;text-align: left" [hidden]="patient_record_validation"> please upload medical record</p>
+    <div class="row">
+    <input style="width: 30%;margin-top: 3%;margin-left: 5%;background-color: black;color: white"type="submit" (click)="submit_record()" value="Submit">
+    <input style="width: 30%;margin-top: 3%;margin-left: 5%;background-color: black;color: white"type="submit" (click)="hideOrShowForm()" value="Cancel">
+    </div>
+    </div>
+</div>
+<!-- <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+  <div class="row m-0">
+    <div class="container text-center" id="copyright">
+      <h4 class="copy">Copyright &copy; Your Website</h4>
+    </div>
+  </div>
+
+</footer> -->

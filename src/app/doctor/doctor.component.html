@@ -1,0 +1,118 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    
+     
+      <li class="nav-item active">
+        <a [routerLink]="['/doctor']" class="nav-link" href="#">Appointments</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/medicalrecords']"  class="nav-link" >Medical Records</a>
+      </li>
+      <li class="nav-item ">
+        <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'doctor' }" class="nav-link">Blog</a>
+      </li>
+    </ul>
+
+    <ul class="nav navbar-nav ml-auto navright">
+      <li>
+        <p class="name">{{firstname}} {{lastname}} </p>
+      </li>
+      <li>
+        <div class="btn-group profile">
+          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <i class="fa fa-user" aria-hidden="true"></i>
+  </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" [routerLink]="['/profile']" type="button">Profile</button>
+            <button class="dropdown-item" type="button">Help</button>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" (click)="logout()" type="button">Logout</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="row m-0">
+  <div class="col-md-9">
+    <div class="shadow p-3 mb-5 bg-white rounded headcomponent">
+      <div class="row m-0 ">
+        <div class="col-md-6">
+        
+          <a (click)="navigate()" class="btn add">Weekly Schedule  <i class="fa fa-plus-circle text-primary" data-toggle="tooltip" data-placement="bottom"  title="Create new schedule"></i> </a>
+         
+        </div>
+        <div class="col-md-6">
+          <div class="dropdown headdropdown">
+            <a class="btn headbtn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Show only <i class="fa fa-caret-down"></i>
+  </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" (click)="filter(cancel)" href="#">Cancelled</a>
+              <a class="dropdown-item" (click)="filter(completed)" href="#">Completed</a>
+              <a class="dropdown-item" (click)="filter(upcoming)" href="#">Upcoming</a>
+               <a class="dropdown-item" (click)="filter(all)" href="#">All</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>
+
+
+<div class="row m-0 outline">
+  <div class="col-md-9">
+
+    <div class="container schedule">
+      <table class="table  table-hover">
+        <thead>
+          <tr>
+
+            <th scope="col">Patient Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Date</th>
+            <th scope="col">Timing</th>
+           <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appData of result;let i=index">
+          <th scope="row">{{appData.FirstName}} {{appData.LastName}}</th>
+         <td> {{appData.phone }} 
+          <td>{{appData.Booking_Date}}</td>
+          <td>{{appData.Booking_Time}}</td>
+          <td><a href="#" class="badge {{appData.Status}}" (click)="open(content,appData)"> {{appData.Status}}</a></td> 
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="col-md-3">
+    <div class="card tips">
+      <div class="card-body">
+        <h5 class="card-title">Todays tips <i class="fa fa-lightbulb-o" aria-hidden="true"></i></h5>
+        <br>
+        <h6 class="card-text">1. Want to know how to create a new schedule? </h6>
+        <p class="card-text ans">&nbsp; &nbsp; Click the plus icon near the weekly schedule to create a new schedule for the upcoming week. </p>
+        <h6 class="card-text">2. How to manage your patients records? </h6>
+        <p class="card-text ans">&nbsp; &nbsp; Click the medical records tab in the menu bar to manage the list of your patients </p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+  <div class="row m-0">
+    <div class="container text-center" id="copyright">
+      <h4 class="copy">Copyright &copy; Your Website</h4>
+    </div>
+  </div>
+
+</footer>

@@ -1,0 +1,42 @@
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-body">
+				<form action="/doctor" name="loginform">
+					<div class="form-group cardbody">
+						<label class="control-label">Email Address</label>
+						<input type="email" class="form-control" id="email" required>
+						<div *ngIf="enull" style="color:red">
+							Email is required
+						</div>
+						<div *ngIf="einvalid" style="color:red">
+							Invalid email id.
+						</div>
+					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" class="form-control" id="password" required>
+						<div *ngIf="pnull" style="color:red">
+							Password is required
+						</div>
+					</div>
+
+					<div class="row align-items-center rememberme">
+						<input type="checkbox">Remember Me
+					</div>
+					<div class="form-group">
+						<button type="submit" (click)="validate()" class="btn float-right login">Login</button>
+					</div>
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center registerNow">
+					Don't have an account?<a href="#">Register Now</a>
+				</div>
+				<div class="d-flex justify-content-center registerNow">
+						Forgot Password?<a [routerLink]="['/forgotpassword']">Forgot Password</a>
+					</div>
+			</div>
+		</div>
+	</div>
+</div>

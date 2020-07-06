@@ -1,0 +1,211 @@
+/* .home{
+     position: relative; 
+} 
+
+#section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
+  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
+  #section41 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
+  #section42 {padding-top:50px;height:500px;color: #fff; background-color: #009688;} */
+
+
+
+
+  
+ @media (min-width:1025px){
+.navbar{
+    height:90px;
+}
+.navbar-nav > li{
+   
+  padding:25px;
+}
+} 
+
+  .btn-outline-light {
+    right: 10px;
+    width: 150px;
+    font-size: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}  
+.signup{
+font-size: xx-large;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-top: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.login{
+    float: right;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    padding: 3px;
+}
+
+    
+@media (min-width:480px) {
+  .navbar-nav > li{
+      font-size:30px;
+  padding-top:20px;
+} 
+
+}
+
+.carousel-inner{
+height:900px;
+} 
+
+.overlay { 
+  color:black;
+  position:absolute;
+  z-index:12;
+  top:30%;
+  left:40%;
+  text-align:center;
+
+}
+
+
+.title{
+    font-size:120px;
+}
+.subtitle{
+    font-size:60px;
+}
+
+
+ @media (max-width: 1024px) {
+  .overlay {
+   color: black;
+    position: absolute;
+    z-index: 12;
+    top: 20%;
+    left: 10%;
+    text-align: center;
+  }
+.title{
+    font-size:70px;
+}
+.subtitle{
+    font-size:40px;
+}
+} 
+
+@media (max-width: 1440px){
+    .overlay{
+    color: black;
+    position: absolute;
+    z-index: 12;
+    top: 20%;
+left:10%;
+    width: 100%;
+    text-align: center;
+}
+}
+
+@media (max-width: 768px){
+    .overlay{
+    top: 15%;
+    left:2%
+    
+}
+.title{
+    font-size:60px;
+}
+.subtitle{
+    font-size:30px;
+}
+
+}
+
+#desc{
+    padding-top: 70px;
+    padding-left: 100px;
+    padding-bottom: 30px;
+    line-height: 1.75;
+}
+
+.description{
+   line-height: 1.75;  
+}
+.heading-sans{
+    font-family: "KievitWeb";
+    font-weight: 200;
+    line-height: 1.1;
+    color: inherit;
+    margin-top: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.02em;
+    line-height: 118%;
+    font-size: 5em;
+}
+#doccontainer{
+    padding-top:60px;
+ padding-bottom: 60px;
+}
+.card-img-top{
+    width:100%;
+    height: 15vw;
+    object-fit: cover;
+}
+#doc,#patient{
+    width: 500px;
+    top: 20px;
+     padding-bottom: 20px;
+}
+
+#doc{
+    float:right;
+}
+
+#sticky-footer{
+    margin-top:150px;
+}
+
+#copyright{
+    margin-top: 40px;
+}
+
+.abt{
+    padding-left:10%;
+}
+.abtdesc{
+    margin-top:25px;
+}
+
+.abtus{
+font-family: inherit;
+ padding-top: 40px;
+}
+ .reach{
+        padding-top: 50px;
+} 
+.icons{
+        padding-right: 2%;
+}
+
+#call{
+    font-size: 35px;
+}
+
+#mail{
+    font-size: 25px;
+}
+.address{
+    padding-top:2%;
+}
+.hmail{
+    padding-top: 1%;
+}
+
+.foot{
+    padding-top:1%;
+}

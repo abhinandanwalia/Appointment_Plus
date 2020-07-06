@@ -1,0 +1,268 @@
+  @media (min-width:1025px){
+    .navbar{
+        height:60px;
+    }
+    .navbar-nav > li{
+       
+      padding:25px;
+    }
+    } 
+    
+    .navbar-nav > li{
+      font-size:15px;
+      padding-top:30px;
+    } 
+      .btn-outline-light {
+        right: 10px;
+        width: 150px;
+        font-size: 25px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }  
+    .signup{
+        width: 80%;
+        margin-left: 10%;
+        border-radius: 14px;
+        padding-right: 30px;
+        padding-left: 30px;
+        margin-top: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .signup:hover{
+        background-color: white;
+        color:black;
+    }
+    
+    .login{
+        float: right;
+        width: 100px;
+      margin-top:10px;
+        font-size: 10px;
+        padding: 3px;
+    }
+    
+        
+    @media (min-width:480px) {
+      .navbar-nav > li{
+          font-size: 15px;
+      padding-top:20px;
+    } 
+    
+    }
+    
+     .carousel-inner{
+    height:400px;
+    }  
+    
+    /* .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        max-height: 300px;
+    } */
+    
+
+    .card{
+        margin-top: 6em;
+        margin-bottom: auto;
+        width: auto;
+        background-color: rgba(0,0,0,0.5) !important;
+        }
+    
+    
+    .title{
+        font-size:40px;
+    }
+    .subtitle{
+        font-size:22px;
+    }
+    
+    
+    
+    
+    
+    .contact{
+        padding-left: 10%
+    }
+    
+    #desc{
+        padding-top: 2em;
+    }
+    
+    
+    
+    .description{
+       line-height: 1.75; 
+           font-size: 15px;
+               font-family: auto; 
+    }
+    .heading-sans{
+        font-family: "KievitWeb";
+        font-weight: 200;
+        line-height: 1.1;
+        color: inherit;
+        margin-top: 1em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        -webkit-font-smoothing: antialiased;
+        letter-spacing: -0.02em;
+        line-height: 118%;
+        font-size: 3em;
+    }
+    .doccontainer{
+        padding-top:60px;
+     padding-bottom: 60px;
+    }
+    .card-img-top{
+        width:100%;
+        height: 15vw;
+        object-fit: cover;
+    }
+    
+    
+    #doc,#patient{
+        float:right;
+    }
+    
+    @media(max-width:425px){
+        #patient{
+            float: none !important;
+        }
+    }
+    
+    .cardtit{
+        font-size: 1rem;
+    }
+    
+    .cardtext{
+        font-size: 0.8rem;
+    }
+    
+    #sticky-footer{
+        margin-top:150px;
+    }
+    
+    #copyright{
+        margin-top: 20px;
+        font-size:10px;
+    }
+    
+    .copy{
+        font-size:10px;
+    }
+    .abt{
+        padding-left:10%;
+    }
+    .abtdesc{
+        margin-top:25px;
+        font-size:15px;
+    }
+    
+    .abtus{
+    font-family: inherit;
+     padding-top: 15px;
+     font-size:20px;
+    }
+     .reach{
+            padding-top: 65px;
+            font-size:15px;
+            padding-left: 7%;
+    } 
+    .icons{
+            padding-right: 2%;
+    }
+    
+    #call{
+        font-size: 20px;
+    }
+    
+    #mail{
+        font-size: 15px;
+    }
+    .address{
+        margin-top: 25px;
+        font-size:15px;
+    }
+    .hmail{
+        padding-top: 1%;
+        font-size:15px;
+    }
+    .hcall{
+         font-size:15px !important;
+    }
+    
+    .add{
+        font-size:15px;
+    }
+    
+    .foot{
+        padding-top:1%;
+    }
+    
+    @media(max-width:768px){
+    .doctorlove{
+    height: 400px !important;
+    }
+    }
+    
+    @media(max-width:425px){
+    .doctorlove{
+    height: 300px !important;
+    }
+    
+    
+    }
+    
+    
+    
+    @media(max-width:425px){
+    .doctorlove,.setho,.healthcare{
+    height: 300px !important;
+    }
+    }
+    
+    
+    
+    .overlay { 
+      color:black;
+      position:absolute;
+      z-index:12;
+      top:30%;
+      left:60%;
+      text-align:center;
+    
+    }
+    
+    @media(min-width:1440px){
+        .overlay{
+            left: 55% !important;
+        }
+    }
+    
+    @media(min-width:768px){
+        .overlay{
+            left: 40% !important;
+        }
+    }
+    
+    @media(max-width:425px){
+        .overlay{
+            left: 13% !important;
+        top: 17% !important;
+        }
+        
+    }
+    
+    @media(max-width:320px){
+        .title{
+         font-size: 30px;
+        }
+    }
+    
+    
+    
+    

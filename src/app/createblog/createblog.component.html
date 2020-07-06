@@ -1,0 +1,118 @@
+<!-- developed by AKHIL TEJA AMBADIPUDI B00825307 -->
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul *ngIf="guest" class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About US</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Help</a>
+      </li>
+    </ul>
+    <ul *ngIf="doc" class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a [routerLink]="['/doctor']" class="nav-link" href="#">Appointment</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/medicalrecords']" class="nav-link" href="#">Medical Records</a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'doctor' }" class="nav-link" href="#">Blog</a>
+      </li>
+     
+      </ul>
+    <ul *ngIf="doc" class="nav navbar-nav navbar-right">
+        <li>
+          <p class="name"> Rodrick Paul </p>
+        </li>
+        <li>
+          <div class="btn-group profile">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">Profile</button>
+              <button class="dropdown-item" type="button">Help</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item"  (click)="logout()"type="button">Logout</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul *ngIf="patient" class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a  [routerLink]="['/bookappointment']" class="nav-link" href="#">Book Appointment</a>
+      </li>
+      <li class="nav-item">
+        <a  [routerLink]="['/managebooking']"  class="nav-link" href="#">Manage Appointment</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Blog</a>
+      </li>
+     
+    </ul>
+    <ul *ngIf="patient" class="nav navbar-nav navbar-right">
+        <li>
+          <p class="name"> Varsha Sridhar </p>
+        </li>
+        <li>
+          <div class="btn-group profile">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <i class="fa fa-user" aria-hidden="true"></i>
+    </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <button class="dropdown-item" type="button">Profile</button>
+              <button class="dropdown-item" type="button">Help</button>
+              <div class="dropdown-divider"></div>
+              <button class="dropdown-item" [routerLink]="['/home']" type="button">Logout</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+  </div>
+</nav>
+<br><br>
+<h2 style="color:bl;margin-left:20%">Create New Blog</h2>
+<div class="card back-color" style="width: 50%;margin-left: 20%;margin-top: 2%;">
+<label style="margin-top: 3%;margin-left: 5%;">Enter Blog title</label>
+<input [(ngModel)]="blog_title" style="margin-left: 5%;width: 70%;"type="text">
+<p style="color: red;margin-left: 5%;" [hidden]="blog_title_validation"> please enter blog title</p>
+<label style="margin-top: 1%;margin-left: 5%;">Enter Blog Description</label>
+<textarea [(ngModel)]="blog_description" style="width: 70%;margin-left: 5%;" rows = "5" cols = "50" name = "description">Enter description here...</textarea>
+<p style="color: red;margin-left: 5%;" [hidden]="blog_description_validation"> please enter blog description</p>
+<label style="margin-top: 3%;margin-left: 5%;">Upload Image</label>
+<input style="margin-top: 1%;margin-left: 5%;" type="file" (imageSelected)="selected($event)" name="pic" [imageToDataUrl]="options" accept="image/*">
+<p style="color: red;margin-left: 5%;" [hidden]="blog_image_validation"> please upload blog image</p>
+<div class="row">
+<input style="width: 30%;margin-top: 3%;margin-left: 5%;"type="submit" (click)="submit_blog()" value="Submit">
+<input style="width: 30%;margin-top: 3%;margin-left: 5%;"type="submit" (click)="cancel_blog()" value="Cancel">
+</div>
+</div>
+<div class="row m-0">
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+  <div class="row m-0">
+    <div class="container text-center" id="copyright">
+      <h4 class="copy">Copyright &copy; Your Website</h4>
+    </div>
+  </div>
+
+</footer>
+</div>
+
+
+
+
+
+
+  

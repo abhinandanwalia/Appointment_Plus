@@ -1,0 +1,138 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a [routerLink]="['/bookappointment']" class="nav-link" href="#">Book Appointment</a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/updateorcancelappointment']" class="nav-link">Manage Appointments</a>
+          </li>
+        <li class="nav-item ">
+            <a [routerLink]="['/blogs']" [queryParams]="{ usr: 'patient' }" class="nav-link">Blog</a>
+          </li>
+        </ul>
+
+    <ul class="nav navbar-nav ml-auto navright">
+        <li>
+           <p class="name"> Varsha Sridhar </p>
+         </li>
+         <li>
+           <div class="btn-group profile">
+             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       <i class="fa fa-user" aria-hidden="true"></i>
+     </button>
+             <div class="dropdown-menu dropdown-menu-right">
+               <button class="dropdown-item" [routerLink]="['/profile']" type="button">Profile</button>
+               <button class="dropdown-item" type="button">Help</button>
+               <div class="dropdown-divider"></div>
+               <button class="dropdown-item" (click)="logout()" type="button">Logout</button>
+             </div>
+           </div>
+         </li>
+       </ul>
+
+  </div>
+</nav>
+<br>
+<br>
+            <div *ngIf="doc" class="container">
+                <table class="table table-borderless table-striped">
+                  <caption style="caption-side: top; color: black; font-size:30px;">Profile</caption>
+                  <tbody *ngFor="let appData of result">
+                      <tr>
+                          <td style="padding:8px">License Number</td>
+                          <td style="padding:8px">{{appData.licenseNumber}}</td>
+                          </tr>
+                  <tr>
+                  <td style="padding:8px">Name</td>
+                  <td style="padding:8px">{{appData.firstName}} {{appData.lastName}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px"> Date of Birth</td>
+                  <td style="padding:8px"> {{appData.dateofBirth}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Email</td>
+                  <td style="padding:8px"> {{appData.email}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Phone</td>
+                  <td style="padding:8px"> {{appData.phone}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Address</td>
+                  <td style="padding:8px"> {{appData.address}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">City</td>
+                  <td style="padding:8px"> {{appData.city}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Province</td>
+                  <td style="padding:8px"> {{appData.province}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Postal Code</td>
+                  <td style="padding:8px"> {{appData.postalCode}}</td>
+                  </tr>
+                  </tbody>
+
+                </table>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/editprofile']"  > <img src="assets/EditButton_black.png" alt="edit_image" style="width:25px; height:25px ;"> Edit Profile</button>
+
+            </div>
+            <div *ngIf="patient" class="container">
+                <table class="table table-borderless table-striped">
+                  <caption style="caption-side: top; color: black; font-size:30px;">Profile</caption>
+                  <tbody *ngFor="let appData of result">
+                  <tr>
+                  <td style="padding:8px">Name</td>
+                  <td style="padding:8px">{{appData.firstName}} {{appData.lastName}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px"> Date of Birth</td>
+                  <td style="padding:8px"> {{appData.dateofBirth}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Email</td>
+                  <td style="padding:8px"> {{appData.email}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Phone</td>
+                  <td style="padding:8px"> {{appData.phone}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Address</td>
+                  <td style="padding:8px"> {{appData.address}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">City</td>
+                  <td style="padding:8px"> {{appData.city}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Province</td>
+                  <td style="padding:8px"> {{appData.province}}</td>
+                  </tr>
+                  <tr>
+                  <td style="padding:8px">Postal Code</td>
+                  <td style="padding:8px"> {{appData.postalCode}}</td>
+                  </tr>
+                  </tbody>
+
+                </table>
+                <button type="button" class="btn btn-outline-success" [routerLink]="['/editprofile']"  > <img src="assets/EditButton_black.png" alt="edit_image" style="width:25px; height:25px ;"> Edit Profile</button>
+
+            </div>
+<footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+    <div class="row m-0">
+      <div class="container text-center" id="copyright">
+        <h4 class="copy">Copyright &copy; Your Website</h4>
+      </div>
+    </div>
+  
+  </footer>

@@ -1,0 +1,142 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-spy="scroll" data-target="#about">About US</a>
+      </li>
+      <li class="nav-item">
+        <a [routerLink]="['/blogs']"  [queryParams]="{ usr: 'guest' }" class="nav-link" >Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Support</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="carousel slide" id="slider" data-ride="carousel">
+ 
+  <ol class="carousel-indicators">
+    <li data-target="#slider" data-slide-to="0" class="active"></li>
+    <li data-target="#slider" data-slide-to="1"></li>
+    <li data-target="#slider" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/healthcare.jpg" alt="slide1" class="healthcare" style="width:100%">
+      <div class="carousel-caption d-none d-md-block">
+
+      </div>
+    </div>
+    <div class="carousel-item" id="slide2">
+      <img src="assets/setho.jpg" alt="slide2" class="setho" style="width:100%">
+    </div>
+
+    <div class="carousel-item" id="slide3">
+
+      <img src="assets/doctor.jpg" alt="slide3" class="doctorlove" style="width:100%">
+
+    </div>
+
+
+  </div>
+  <a class="carousel-control-prev" href="#slider" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#slider" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  <div class="overlay">
+    <h1 class="title">AppointmentPlus</h1>
+    <h2 class="subtitle">We make your life better</h2>
+    <button type="button" class="btn btn-dark signup" [routerLink]="['/signup']" >Sign Up</button>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" id="desc">
+      <blockquote>
+        <h6 class="heading-sans">We promise you the best patient experience!</h6>
+      </blockquote>
+      <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+    <div class="col-md-3">
+      <div class="container doccontainer">
+        <div class="card" id="doc">
+          <img class="card-img-top" src="assets/doclogin.jpg" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h5 class="card-title cardtit">Doctors</h5>
+            <h6 class="card-text cardtext">Give your schedule with ease with AppointmentPlus!</h6>
+            <a [routerLink]="['/login']" [queryParams]="{ usr: 'doctor' }" class="btn btn-dark login">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="container doccontainer">
+        <div class="card" id="patient">
+          <img class="card-img-top img-fluid" src="assets/patients.png" alt="Card image" style="width:100%">
+          <div class="card-body">
+            <h5 class="card-title cardtit">Patients</h5>
+            <h6 class="card-text cardtext">Book appointments with just one tap!</h6>
+            <a [routerLink]="['/login']" [queryParams]="{ usr: 'patient' }" class="btn btn-dark login">Login</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="row m-0">
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50" style="width:100%">
+    <div class="row foot m-0">
+      <div class="col-md-5 abt" id="about">
+        <h2 class="abtus">About Us</h2>
+        <h3 class="abtdesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Expedita sapiente sint, nulla, nihil repudiandae commodi voluptatibus corrupti animi sequi aliquid magnam
+          debitis, maxime quam recusandae harum esse fugiat. Itaque, culpa</h3>
+      </div>
+
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-3 contact" id="contact">
+        <h2 class="abtus">Contact Us</h2>
+        <div class="address">
+          <h3 class="add"><span><i class="fa fa-address-card"></i></span> Address</h3>
+          <h3 class="add">Example Inc.</h3>
+          <h3 class="add"> 1234 Example Street</h3>
+          <h3 class="add">Antartica, Example 0987</h3>
+        </div>
+
+      </div>
+      <div class="col-md-3">
+        <div class="reach">
+          <h3 class="hcall"><span class="icons"><i class="fa fa-phone" id="call" aria-hidden="true"></i></span> (123) 456-7890 </h3>
+          <h3 class="hmail"><span class="icons"><i class="fa fa-envelope" id="mail"  aria-hidden="true"></i></span> example@abc.com </h3>
+        </div>
+      </div>
+    </div>
+    <div class="row m-0">
+      <div class="container text-center" id="copyright">
+        <h4 class="copy">Copyright &copy; Your Website</h4>
+      </div>
+    </div>
+
+  </footer>
+</div>
